@@ -32,6 +32,17 @@ formatGroup.add_argument(
 )
 
 formatGroup.add_argument(
-	"-s", "--sep",
-	help="string to use to separate cells in default output mode"
+	"-s", "--sep", default="|", metavar="separator",
+	help="string to use to separate cells in default output mode; default '|'"
+)
+
+formatGroup.add_argument(
+	"-p", "--pretty", action="store_true",
+	help="whether to prettify output"
+)
+
+formatGroup.add_argument(
+	"-be", "--blob-encoding",
+	choices=["base64", "base85", "hex", "raw"],
+	help="encoding to output blobs in"
 )
