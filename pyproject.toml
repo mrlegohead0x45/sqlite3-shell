@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "sqlite_shell"
+version = "0.1.0"
+description = ""
+authors = ["19ecal <<>>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+sqlparse = {version = "^0.4.2", optional = true}
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
