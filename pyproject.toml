@@ -2,7 +2,7 @@
 name = "sqlite_shell"
 version = "0.1.0"
 description = ""
-authors = ["19ecal <<>>"]
+authors = ["mrlegohead0x45"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
