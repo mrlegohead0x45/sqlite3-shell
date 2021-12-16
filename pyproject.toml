@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "sqlite_shell"
+name = "sqlite3_shell"
 version = "0.1.0"
 description = ""
 authors = ["mrlegohead0x45"]

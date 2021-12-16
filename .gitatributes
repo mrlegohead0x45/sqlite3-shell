@@ -30,4 +30,6 @@
 
 # replit
 .replit     linguist-language=toml
+
+# poetry
 poetry.lock linguist-language=toml
