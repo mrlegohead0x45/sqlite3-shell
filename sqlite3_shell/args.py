@@ -11,6 +11,27 @@ parser.add_argument(
 )
 
 parser.add_argument(
-	"database", default=":memory:", metavar="FILE",
+	"database", default=":memory:", nargs="?",
 	help="database file to connect to; by default a temporary in-memory one"
+)
+
+formatGroup = parser.add_argument_group(
+	"Formatting options",
+	description="Options for formatting output"
+)
+
+formatGroup.add_argument(
+	"-f", "--format",
+	choices=["csv", "html", "json", "py"],
+	help="format to output data in"
+)
+
+formatGroup.add_argument(
+	"--headers", action="store_true",
+	help="whether or not to include table headings in output"
+)
+
+formatGroup.add_argument(
+	"-s", "--sep",
+	help="string to use to separate cells in default output mode"
 )

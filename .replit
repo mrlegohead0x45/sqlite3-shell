@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 -m sqlite_shell"
+run = "python3 -m sqlite3_shell -h"
