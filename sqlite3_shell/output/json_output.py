@@ -2,7 +2,7 @@ from json import JSONEncoder
 from sqlite3 import Row
 from argparse import Namespace
 from typing import List
-from .blob_format import formatBlob
+from .blob_format import format_blob
 
 class CustomJSONEncoder(JSONEncoder):
 	def __init__(self, opts: Namespace) -> None:
@@ -11,14 +11,14 @@ class CustomJSONEncoder(JSONEncoder):
 
 	def default(self, o):
 		if isinstance(o, bytes):
-			return formatBlob(o, self.opts)
+			return format_blob(o, self.opts)
 
 		elif isinstance(o, Row):
 			return tuple(o)
 
 		return super().default(o)
 		
-def formatToJSON(rows: List[Row], opts:Namespace) -> str:
+def format_to_json(rows: List[Row], opts:Namespace) -> str:
 	if not rows:
 		return ""
 

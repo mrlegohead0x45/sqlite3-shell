@@ -8,7 +8,7 @@ BLOB_ENCODINGS = {
 	"raw": lambda b: b.decode(errors="ignore")
 }
 
-def formatBlob(blob: bytes, opts: Namespace) -> str:
+def format_blob(blob: bytes, opts: Namespace) -> str:
 	encoded = BLOB_ENCODINGS[opts.blob_encoding](blob)
 
 	return opts.blob_format.format(encoded)

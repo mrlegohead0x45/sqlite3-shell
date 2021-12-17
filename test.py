@@ -14,5 +14,5 @@ cur = conn.cursor()
 
 cur.execute("select * from test_data;")
 res = cur.fetchall()
-print(json_output.formatToJSON(res, args))
+print(json_output.format_to_json(res, args))
 
