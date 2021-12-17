@@ -1,5 +1,7 @@
-from sqlite_shell import __version__
+from sqlite3 import connect
+
+conn = connect("test.db")
 
 
-def test_version():
-    assert __version__ == '0.1.0'
+
+conn.close()
