@@ -14,4 +14,11 @@ def test_basicJson():
 	args = parser.parse_args(["-f", "json"])
 	json = CustomJSONEncoder(args).encode(res)
 
-	assert data["basicJson"] == json
+	assert data["basic"] == json
+
+def test_blobJson():
+	args = parser.parse_args(["-f", "json", "-be", "base64", "-bf", "blob({})"])
+	json = CustomJSONEncoder(args).encode(res)
+	
+	assert json == data["blob"]
+	
