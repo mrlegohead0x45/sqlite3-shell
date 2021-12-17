@@ -3,7 +3,7 @@ from . import __version__
 
 parser = ArgumentParser(
 	prog="sqlite3_shell",
-	description="Pure Python SQLite3 shell"
+	description="Python SQLite3 shell"
 )
 
 parser.add_argument(
@@ -59,6 +59,6 @@ formatGroup.add_argument(
 )
 
 formatGroup.add_argument(
-	"-n", "--null", default="NULL",
+	"-n", "--null-value", default="NULL",
 	help="string representation of NULL, default 'NULL'"
 )

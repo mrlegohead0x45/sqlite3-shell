@@ -1,6 +1,8 @@
 __all__ = [
-	"csv-output",
-	"html-output",
-	"json-output",
-	"py-output"
+	"csv_output",
+	"html_output",
+	"json_output",
+	"py_output"
 ]
+
+from . import *
