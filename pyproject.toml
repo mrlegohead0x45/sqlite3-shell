@@ -1,8 +1,24 @@
 [tool.poetry]
 name = "sqlite3_shell"
 version = "0.1.0"
-description = ""
+description = "A SQLite3 shell written in Python"
+license = "MIT"
 authors = ["mrlegohead0x45"]
+readme = "README.md"
+repository = "https://github.com/mrlegohead0x45/sqlite3-shell"
+keywords = [
+	"shell",
+	"sqlite3",
+	"sqlite",
+	"python"
+]
+classifiers = [
+	"Development Status :: 2 - Pre-Alpha",
+	"Environment :: Console",
+	"Operating System :: OS Independent",
+	"Programming Language :: SQL",
+	"Topic :: Database :: Front-Ends"
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
