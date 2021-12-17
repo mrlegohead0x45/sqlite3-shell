@@ -15,6 +15,11 @@ parser.add_argument(
 	help="database file to connect to; by default a temporary in-memory one"
 )
 
+parser.add_argument(
+	"-i", "--init", metavar="file",
+	help="file with SQL code to run before interactive input is opened"
+)
+
 formatGroup = parser.add_argument_group(
 	"Formatting options",
 	description="Options for formatting output"
@@ -42,7 +47,18 @@ formatGroup.add_argument(
 )
 
 formatGroup.add_argument(
-	"-be", "--blob-encoding",
+	"-be", "--blob-encoding", default="hex",
 	choices=["base64", "base85", "hex", "raw"],
 	help="encoding to output blobs in"
+)
+
+formatGroup.add_argument(
+	"-bf", "--blob-format", default="BLOB:{}",
+	help="format to output blobs in. .format will be called with the encoded blob. " \
+		"default 'BLOB:{}'"
+)
+
+formatGroup.add_argument(
+	"-n", "--null", default="NULL",
+	help="string representation of NULL, default 'NULL'"
 )
