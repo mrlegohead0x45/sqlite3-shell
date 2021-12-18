@@ -28,3 +28,4 @@ def test_headers_pretty_html():
 	html = format_to_html(res, args)
 
 	assert html == data
+	

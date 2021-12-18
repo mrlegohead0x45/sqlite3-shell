@@ -1,4 +1,4 @@
-from sqlite3_shell.output import html_output
+from sqlite3_shell.output import csv_output
 from sqlite3_shell.args import parser
 from sqlite3 import connect, Row
 
@@ -14,5 +14,5 @@ cur = conn.cursor()
 
 cur.execute("select * from test_data;")
 res = cur.fetchall()
-print(html_output.format_to_html(res, args))
+print(csv_output.format_to_csv(res, args))
 

@@ -27,7 +27,7 @@ formatGroup = parser.add_argument_group(
 
 formatGroup.add_argument(
 	"-f", "--format",
-	choices=["csv", "html", "json", "py"],
+	choices=["csv", "html", "json"],
 	help="format to output data in"
 )
 
