@@ -1,6 +1,0 @@
-{
-	"json": {
-		"basic": "[[1, 2.0, \"BLOB:fffe62006c006f0062005f007400650073007400\", \"text data;\"], [5, null, \"BLOB:cea0\", null]]",
-		"blob": "[[1, 2.0, \"blob(//5iAGwAbwBiAF8AdABlAHMAdAA=)\", \"text data;\"], [5, null, \"blob(zqA=)\", null]]"
-	}
-}
