@@ -115,10 +115,13 @@ category = "dev"
 optional = false
 python-versions = "*"
 
+[extras]
+sqlparse = ["sqlparse"]
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "f1029ccb38ac3bc594714512952cc1c098bf497ce44a4dff905120cbba4c5810"
+content-hash = "a75edc70a162dd33415e1a858f80d859684c3702a97dcc1d753b46e3196e9cab"
 
 [metadata.files]
 atomicwrites = [

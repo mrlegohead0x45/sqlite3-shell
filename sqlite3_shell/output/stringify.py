@@ -12,7 +12,7 @@ Value = Union[
 
 def stringify(value: Value, opts: Namespace) -> str:
 	if isinstance(value, bytes):
-		return format_blob(value)
+		return format_blob(value, opts)
 
 	elif value is None:
 		return opts.null_value

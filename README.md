@@ -2,8 +2,8 @@
 [![Run on Repl.it](https://repl.it/badge/github/mrlegohead0x45/sqlite3-shell)](https://repl.it/github/mrlegohead0x45/sqlite3-shell)
 
 A SQLite3 shell written in Python
-Packaged using Poetry
 
+Packaged using Poetry
 
 ```
 ~/sqlite3-shell$ python3 -m sqlite3_shell -h

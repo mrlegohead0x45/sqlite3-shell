@@ -2,9 +2,10 @@ from html import escape
 from argparse import Namespace
 from sqlite3 import Row
 from typing import List
+from .stringify import stringify
 
 _HTML_TAGS = {
-	"regular":{
+	"regular": {
 		"table_start": "<table>",
 		"row_start": "<tr>",
 		"header_start": "<th>",
@@ -14,7 +15,7 @@ _HTML_TAGS = {
 		"row_end": "</tr>",
 		"table_end": "</table>"
 	},
-	"pretty":{
+	"pretty": {
 		"table_start": "<table>\n",
 		"row_start": "\t<tr>\n",
 		"header_start": "\t\t<th>",
@@ -26,7 +27,7 @@ _HTML_TAGS = {
 	}
 }
 
-def formatToHtml(rows: List[Row], opts: Namespace) -> str:
+def format_to_html(rows: List[Row], opts: Namespace) -> str:
 	if not rows:
 		return ""
 
@@ -43,12 +44,20 @@ def formatToHtml(rows: List[Row], opts: Namespace) -> str:
 		output += HTML_TAGS["row_start"]
 		for header in rows[0].keys():
 			output += HTML_TAGS["header_start"]
-			output += escape(header)
+			output += escape(header) # headers should only be strings
 			output += HTML_TAGS["header_end"]
 	
 		output += HTML_TAGS["row_end"]
 
+	for row in rows:
+		output += HTML_TAGS["row_start"]
+		for value in row:
+			output += HTML_TAGS["data_start"]
+			output += escape(stringify(value, opts))
+			output += HTML_TAGS["data_end"]
+		output += HTML_TAGS["row_end"]
 
+	output += HTML_TAGS["table_end"]
 
+	return output
 
-	
