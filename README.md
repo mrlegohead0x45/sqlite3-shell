@@ -7,7 +7,7 @@ Packaged using Poetry
 
 ```
 ~/sqlite3-shell$ python3 -m sqlite3_shell -h
-usage: sqlite3_shell [-h] [--version] [-i file] [-f {csv,html,json,py}] [--headers]
+usage: sqlite3_shell [-h] [--version] [-i file] [-f {csv,html,json}] [--headers]
                      [-s separator] [-p] [-be {base64,base85,hex,raw}] [-bf BLOB_FORMAT]
                      [-n NULL_VALUE]
                      [database]
@@ -25,7 +25,7 @@ optional arguments:
 Formatting options:
   Options for formatting output
 
-  -f {csv,html,json,py}, --format {csv,html,json,py}
+  -f {csv,html,json}, --format {csv,html,json}
                         format to output data in
   --headers             whether or not to include table headings in output
   -s separator, --sep separator
