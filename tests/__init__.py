@@ -1,3 +1,7 @@
+__all__ = [
+	"html", "json"
+]
+
 from sqlite3 import connect, Row
 
 open("tests/test.db", "w").close()

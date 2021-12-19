@@ -5,5 +5,3 @@ __all__ = [
 	"stringify",
 	"blob_format"
 ]
-
-from . import *
