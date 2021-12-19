@@ -3,10 +3,7 @@
 
 A SQLite3 shell written in Python
 
-Depends on [sqlparse](github.com/andialbrecht/sqlparse) as an optional dependency.
-Should operate just fine without it, although I am planning to use it for more sophisticated
-checking of whether a statement is a `SELECT` or not and more sophisticated operation
-of dot commands
+Depends on [sqlparse](github.com/andialbrecht/sqlparse).
 
 ## Planned features
 * [ ] dot commands like sqlite3 has

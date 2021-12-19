@@ -104,7 +104,7 @@ name = "sqlparse"
 version = "0.4.2"
 description = "A non-validating SQL parser."
 category = "main"
-optional = true
+optional = false
 python-versions = ">=3.5"
 
 [[package]]
@@ -121,7 +121,7 @@ sqlparse = ["sqlparse"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "a75edc70a162dd33415e1a858f80d859684c3702a97dcc1d753b46e3196e9cab"
+content-hash = "e197d6f35db094004742022b1cca25ec45d187d6e458797c82526ee33b39e5c9"
 
 [metadata.files]
 atomicwrites = [

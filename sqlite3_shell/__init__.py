@@ -3,9 +3,3 @@ __all__ = [
 	"output",
 	"args"
 ]
-
-try:
-	import sqlparse
-	SQLPARSE = True
-except ModuleNotFoundError:
-	SQLPARSE = False

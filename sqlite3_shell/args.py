@@ -17,7 +17,8 @@ parser.add_argument(
 
 parser.add_argument(
 	"-i", "--init", metavar="file",
-	help="file with SQL code to run before interactive input is opened"
+	help="file with SQL code to run before interactive input is opened. " \
+		"dot commands will not be available"
 )
 
 formatGroup = parser.add_argument_group(

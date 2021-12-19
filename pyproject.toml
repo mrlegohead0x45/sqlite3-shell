@@ -22,13 +22,10 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-sqlparse = {version = "^0.4.2", optional = true}
+sqlparse = "^0.4.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
-
-[tool.poetry.extras]
-sqlparse = ["sqlparse"]
 
 [tool.poetry.scripts]
 sqlite3-shell = "sqlite3_shell.__main__:main"
