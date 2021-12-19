@@ -9,8 +9,20 @@ checking of whether a statement is a `SELECT` or not and more sophisticated oper
 of dot commands
 
 ## Planned features
-* dot commands like sqlite3 has
-* different output formats
+* [ ] dot commands like sqlite3 has
+* [x] different output formats
+
+## Planned dot commands
+* [ ] `.exit`, `.quit` exit
+* [ ] `.help` help message
+* [ ] `.open FILE` open database file
+* [ ] `.args ARGS` parse and apply formatting arguments as though from the command line
+* [ ] `.cd DIR` change cwd to DIR
+* [ ] `.shell CMD ARGS...` run CMD ARGS... in a system shell
+* [ ] `.system` alias for `.shell`
+* [ ] `.read FILE` run SQL in FILE 
+
+
 
 ```
 ~/sqlite3-shell$ python3 -m sqlite3_shell -h
