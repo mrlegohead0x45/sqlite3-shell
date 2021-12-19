@@ -3,7 +3,14 @@
 
 A SQLite3 shell written in Python
 
-Packaged using Poetry
+Depends on [sqlparse](github.com/andialbrecht/sqlparse) as an optional dependency.
+Should operate just fine without it, although I am planning to use it for more sophisticated
+checking of whether a statement is a `SELECT` or not and more sophisticated operation
+of dot commands
+
+## Planned features
+* dot commands like sqlite3 has
+* different output formats
 
 ```
 ~/sqlite3-shell$ python3 -m sqlite3_shell -h
