@@ -12,14 +12,12 @@ Depends on [sqlparse](github.com/andialbrecht/sqlparse).
 ## Planned dot commands
 * [x] `.exit`, `.quit` exit
 * [ ] `.help` help message
-* [ ] `.open FILE` open database file
+* [x] `.open FILE` close current and open database file
 * [ ] `.args ARGS` parse and apply formatting arguments as though from the command line
-* [ ] `.cd DIR` change cwd to DIR
+* [x] `.cd DIR` change cwd to DIR
 * [ ] `.shell CMD ARGS...` run CMD ARGS... in a system shell
 * [ ] `.system` alias for `.shell`
-* [ ] `.read FILE` run SQL in FILE 
-
-
+* [x] `.read FILE` run SQL in FILE 
 
 ```
 ~/sqlite3-shell$ python3 -m sqlite3_shell -h

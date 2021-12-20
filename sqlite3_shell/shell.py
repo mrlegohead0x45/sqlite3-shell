@@ -31,6 +31,23 @@ class Shell:
 			self.conn.close()
 			exit()
 
+		elif cmd.startswith(".open"):
+			# remove '.open ' and trailing ;
+			file = cmd[6:-1]
+			self.conn.close()
+			self.conn = sqlite3.connect(file)
+			self.conn.row_factory = sqlite3.Row
+			self.conn.isolation_level = None # allow user to do their own transactions
+
+		elif cmd.startswith(".cd"):
+			dir = cmd[4:-1] # remove '.cd ' and trailing ;
+			chdir(dir)
+
+		elif cmd.startswith(".read"):
+			file = cmd[6:-1] # remove '.read ' and trailing ;
+			with open(file, "r") as f:
+				self.run_sql(f.read())
+				
 		return self.conn
 
 	def output(self, rows: Rows) -> None:
@@ -52,8 +69,14 @@ class Shell:
 		stmt = stmt.strip() # remove leading & trailing whitespace
 
 		if stmt.startswith("."):
-			self.conn = self.handle_dot_command(stmt)
-			return None
+			try:
+				self.conn = self.handle_dot_command(stmt)
+
+			except (FileNotFoundError, ) as e:
+				print(f"Error: {e}")
+			
+			finally:
+				return None
 
 		if stmt.upper().startswith("SELECT"):
 			select = True
@@ -74,7 +97,7 @@ class Shell:
 		cur.close()
 		return res
 
-	# run statements from and output results
+	# run statements and output results
 	def run_sql(self, sql: str) -> None:
 		stmts = sqlparse.split(sql)
 		
