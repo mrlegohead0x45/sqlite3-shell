@@ -10,4 +10,4 @@ INSERT INTO test_data (i, f, b, t) VALUES (
 );
 INSERT INTO test_data (i, b) VALUES (
 	5, x'cea0'
-)
+);

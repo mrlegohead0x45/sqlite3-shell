@@ -17,8 +17,13 @@ parser.add_argument(
 
 parser.add_argument(
 	"-i", "--init", metavar="file",
-	help="file with SQL code to run before interactive input is opened. " # \
-		# "dot commands will not be available"
+	help="file with SQL code to run before interactive input is opened. "
+)
+
+parser.add_argument(
+	"-v", "--verbosity", default="none",
+	choices=["debug", "info", "warning", "error", "critical", "none"],
+	help="logging level. only messages at and above that level will be logged"
 )
 
 formatGroup = parser.add_argument_group(
