@@ -10,7 +10,7 @@ Depends on [sqlparse](github.com/andialbrecht/sqlparse).
 * [x] different output formats
 
 ## Planned dot commands
-* [ ] `.exit`, `.quit` exit
+* [x] `.exit`, `.quit` exit
 * [ ] `.help` help message
 * [ ] `.open FILE` open database file
 * [ ] `.args ARGS` parse and apply formatting arguments as though from the command line

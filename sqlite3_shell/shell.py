@@ -1,7 +1,11 @@
 import sqlite3
-from argparse import Namespace
 import sqlparse
+from argparse import Namespace
 from typing import List, Optional
+from os import chdir
+from subprocess import getoutput
+from sys import exit
+from .args import parser
 from .output import OUTPUT_FORMAT_MAP, stringify
 
 Rows = List[sqlite3.Row]
@@ -20,14 +24,22 @@ class Shell:
 				self.run_sql(file.read())
 				
 
-	def handle_dot_command(self, command: str) -> sqlite3.Connection:
-		
+	def handle_dot_command(self, cmd: str) -> sqlite3.Connection:
+		cmd = cmd.strip()
+
+		if cmd.startswith((".exit", ".quit")):
+			self.conn.close()
+			exit()
+
 		return self.conn
 
 	def output(self, rows: Rows) -> None:
 		func = OUTPUT_FORMAT_MAP.get(self.opts.format, None)
 		
 		if func is None:
+			if self.opts.headers:
+				rows.insert(0, rows[0].keys())
+
 			for row in rows:
 				out = map(lambda v: stringify.stringify(v, self.opts), row)
 				print(self.opts.sep.join(out))

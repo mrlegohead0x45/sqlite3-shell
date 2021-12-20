@@ -11,12 +11,12 @@ def main():
 	
 	if args.database == ":memory:":
 		print("Connected to a temporary in-memory database")
-		print("Use '.open FILE' to open a database file")
+		print("Use '.open FILE;' to open a database file")
 
 	else:
 		print(f"Connected to {args.database}")
 
-	print("Use '.help' for help on dot commands")
+	print("Use '.help;' for help on dot commands")
 
 	try:
 		shell.run()
