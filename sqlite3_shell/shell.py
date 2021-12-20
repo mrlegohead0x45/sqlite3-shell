@@ -21,7 +21,8 @@ class Shell:
 				
 
 	def handle_dot_command(self, command: str) -> sqlite3.Connection:
-		pass
+		
+		return self.conn
 
 	def output(self, rows: Rows) -> None:
 		func = OUTPUT_FORMAT_MAP.get(self.opts.format, None)
@@ -45,7 +46,13 @@ class Shell:
 		if stmt.upper().startswith("SELECT"):
 			select = True
 
-		cur = self.conn.execute(stmt)
+		try:
+			cur = self.conn.execute(stmt)
+		
+		except sqlite3.Error as e:
+			print(f"Error: {e}")
+			return None
+
 		if select:
 			res = cur.fetchall()
 
@@ -68,14 +75,16 @@ class Shell:
 	# the main method as it were
 	def run(self) -> None:
 		buffer = ""
+		prompt = "sqlite3> "
 		# main loop
 		while True:
-			buffer += input("sqlite3> ")
+			buffer += input(prompt)
 
 			if sqlite3.complete_statement(buffer):
 				self.run_sql(buffer)
 				buffer = ""
+				prompt = "sqlite3> "
 			
 			else:
-				buffer += input("    ...>")
+				prompt = "    ...> "
 		
