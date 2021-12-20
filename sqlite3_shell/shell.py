@@ -2,7 +2,7 @@ import sqlite3
 from argparse import Namespace
 import sqlparse
 from typing import List, Optional
-from sqlite3_shell.output import *
+from .output import OUTPUT_FORMAT_MAP, stringify
 
 Rows = List[sqlite3.Row]
 
@@ -20,19 +20,26 @@ class Shell:
 				self.run_sql(file.read())
 				
 
-	def handle_dot_command(self, command: str) -> Optional[sqlite3.Connection]:
+	def handle_dot_command(self, command: str) -> sqlite3.Connection:
 		pass
 
 	def output(self, rows: Rows) -> None:
-		if self.opts.format == "json":
-			print(json_output.format_to_json(rows))
+		func = OUTPUT_FORMAT_MAP.get(self.opts.format, None)
+		
+		if func is None:
+			for row in rows:
+				out = map(lambda v: stringify.stringify(v, self.opts), row)
+				print(self.opts.sep.join(out))
+
+		else:
+			print(func(rows, self.opts))
 
 	# run a single statement and return it's results if any
 	def run_stmt(self, stmt: str) -> Optional[Rows]:
 		stmt = stmt.strip() # remove leading & trailing whitespace
 
 		if stmt.startswith("."):
-			self.handle_dot_command(stmt)
+			self.conn = self.handle_dot_command(stmt)
 			return None
 
 		if stmt.upper().startswith("SELECT"):

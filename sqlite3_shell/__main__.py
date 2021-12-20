@@ -1,6 +1,9 @@
 from .args import parser
+from .shell import Shell
 
 def main():
-	parser.parse_args()
+	args = parser.parse_args()
+	shell = Shell(args)
+	shell.run()
 
 main()
